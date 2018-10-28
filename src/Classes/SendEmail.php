@@ -8,7 +8,6 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 
 /**
  * Esta clase expone los métodos relacionados con el envío de correo.
- * @package App\Controller\Web
  * @author Jhoan López <jhoanlt19@gmail.com>
  * @since 1.0.0
  */

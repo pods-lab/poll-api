@@ -109,7 +109,7 @@ class Group
     }
 
     /**
-     * @return mixed
+     * @return ItemsPerGroup[]|ArrayCollection
      */
     public function getItemsPerGroup()
     {

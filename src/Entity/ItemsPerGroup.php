@@ -83,4 +83,36 @@ class ItemsPerGroup
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getGroupRel()
+    {
+        return $this->groupRel;
+    }
+
+    /**
+     * @param mixed $groupRel
+     */
+    public function setGroupRel($groupRel): void
+    {
+        $this->groupRel = $groupRel;
+    }
+
+    /**
+     * @return PollItem
+     */
+    public function getPollItemRel()
+    {
+        return $this->pollItemRel;
+    }
+
+    /**
+     * @param mixed $pollItemRel
+     */
+    public function setPollItemRel($pollItemRel): void
+    {
+        $this->pollItemRel = $pollItemRel;
+    }
 }

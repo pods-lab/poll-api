@@ -25,18 +25,30 @@ class GroupController extends FOSRestController
 
         if(count($groups) === 0) return false;
         $result = [];
+        $groupsResults = [];
         foreach($groups AS $group) {
-
+            $itemsPerGroup = $group->getItemsPerGroup();
+            $groupItems = [];
+            foreach($itemsPerGroup AS $itemGroup) {
+                $item = $itemGroup->getPollItemRel();
+                $groupItems[] = [
+                    "code" => $item->getId(),
+                    "nomenclature" => $itemGroup->getNomenclature(),
+                    "title" => $item->getTitle(),
+                    "value" => 0,
+                ];
+            }
+            $groupsResults[] = [
+                "code" => $group->getId(),
+                "title" => $group->getTitle(),
+                "average_value" => 0,
+                "items" => $groupItems,
+            ];
         }
-        var_dump($groups);
-        exit();
-//        return [
-//            'code' => $poll->getId(),
-//            'title' => $poll->getTitle(),
-//            'description' => $poll->getDescription(),
-//            'date' => $poll->getDate()? $poll->getDate()->format('Y-m-d H:i:s') : null,
-//        ];
+        return [
+            "title" => "",
+            "average_value" => 0,
+            "groups" => $groupsResults,
+        ];
     }
-
-    
 }

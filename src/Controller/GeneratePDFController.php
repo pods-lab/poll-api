@@ -34,10 +34,12 @@ class GeneratePDFController
             $mpdf->WriteHTML($content);
 
             // Saves file on the server as 'filename.pdf'
-            $mpdf->Output('survey.pdf', \Mpdf\Output\Destination::DOWNLOAD);
+            $pdf = $mpdf->Output('survey.pdf', \Mpdf\Output\Destination::DOWNLOAD);
 
         } catch (\Exception $exception){
             //ToDo handle error
         }
+
+        return $pdf;
     }
 }

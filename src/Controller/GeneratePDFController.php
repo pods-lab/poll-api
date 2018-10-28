@@ -35,9 +35,17 @@ class GeneratePDFController
 
             // Saves file on the server as 'filename.pdf'
             $mpdf->Output('survey.pdf', \Mpdf\Output\Destination::DOWNLOAD);
+            $status  = true;
+            $message = "PDF generado correctamente";
 
         } catch (\Exception $exception){
-            //ToDo handle error
+            $status  = false;
+            $message = $exception->getMessage();
         }
+
+        return [
+          "status"  => $status,
+          "message" => $message,
+        ];
     }
 }

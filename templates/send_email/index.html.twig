@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Encuesta electrónica {% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        .divResultadoFinal {font-size: 20px;}
+    </style>
+
+    <div class="example-wrapper">
+        <h1>Encuesta electrónica</h1>
+
+        <h3>Datos del usuario</h3>
+        <p><strong>Nombre : </strong> {{ survey['user_data'].full_name }}</p>
+        <p><strong>Celular : </strong> {{ survey['user_data'].cellphone }}</p>
+        <p><strong>Email : </strong> {{ survey['user_data'].email }}</p>
+
+        {% for group in survey['survey']['groups'] %}
+            <h3>{{ group.title ~ ":  " ~ group.average_value ~ "%" }}</h3>
+            <h3>Items</h3>
+            <ul>
+                {% for item in group.items %}
+                    <li>{{ item.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+        <div class="divResultadoFinal">
+            <h2>Resultado final: {{ survey['survey'].average_value }} %</h2>
+        </div>
+    </div>
+{% endblock %}

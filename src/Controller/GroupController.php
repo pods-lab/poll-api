@@ -45,6 +45,10 @@ class GroupController extends FOSRestController
                 "items" => $groupItems,
             ];
         }
-        return $groupsResults;
+        return [
+            "title" => "",
+            "average_value" => 0,
+            "groups" => $groupsResults,
+        ];
     }
 }

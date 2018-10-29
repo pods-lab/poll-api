@@ -14,8 +14,8 @@
         <h2>Encuesta electrónica</h2>
 
         <p><strong>Datos del usuario</strong></p>
-        <p><strong>Nombre : </strong> {{ survey['user_data'].full_name }}</p>
-        <p><strong>Celular : </strong> {{ survey['user_data'].cellphone }}</p>
+        <p><strong>Nombre : </strong> {{ (survey['user_data'].full_name is defined ? survey['user_data'].full_name : "") }}</p>
+        <p><strong>Celular : </strong> {{ survey['user_data'].cellphone is defined ? survey['user_data'].cellphone : "" }}</p>
         <p><strong>Email : </strong> {{ survey['user_data'].email }}</p>
         <div class="separator"></div>
         {% for group in survey['survey']['groups'] %}

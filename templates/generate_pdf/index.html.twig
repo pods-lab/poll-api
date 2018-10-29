@@ -6,28 +6,24 @@
     <style>
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        .porcentaje {font-size: 20px; margin-top: 0px}
-        .divPorcentaje {text-align: right}
         .divResultadoFinal {font-size: 20px;}
+        .li {font-size: 14px}
     </style>
 
     <div class="example-wrapper">
-        <h1>Encuesta electrónica</h1>
+        <h4>Encuesta electrónica</h4>
 
         {% for group in survey['survey']['groups'] %}
-            <h2>{{ group.title }}:</h2>
-            <h3>Items</h3>
+            <h5>{{ group.title ~ ":  " ~ group.average_value ~ "%" }}</h5>
+            <h5>Preguntas</h5>
             <ul>
                 {% for item in group.items %}
-                    <li>{{ item.title }}</li>
+                    <li class="li">{{ item.title }}</li>
                 {% endfor %}
             </ul>
-            <div class="divPorcentaje">
-                <h5 class="porcentaje">{{ group.average_value }} %</h5>
-            </div>
         {% endfor %}
         <div class="divResultadoFinal">
-            <h3>Resultado final: {{ survey['survey'].average_value }} %</h3>
+            <h5>Resultado final: {{ survey['survey'].average_value }} %</h5>
         </div>
     </div>
 {% endblock %}

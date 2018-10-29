@@ -15,7 +15,7 @@ class GeneratePDFController
 {
     /**
      * Generación de PDF
-     * @Rest\Post("/generar", name="generar")
+     * @Rest\Post("/generate", name="generate_pdf")
      */
     public function generatePDF(Request $request)
     {
@@ -32,12 +32,14 @@ class GeneratePDFController
 
             // Write some HTML code:
             $mpdf->WriteHTML($content);
-
+            $fileName = time() . ".pdf";
             // Saves file on the server as 'filename.pdf'
+            header("Content-type:application/pdf");
+            header("Content-Disposition:attachment;filename='$fileName'");
+            header("Access-Control-Allow-Origin: *");
             $mpdf->Output('survey.pdf', \Mpdf\Output\Destination::DOWNLOAD);
             $status  = true;
             $message = "PDF generado correctamente";
-
         } catch (\Exception $exception){
             $status  = false;
             $message = $exception->getMessage();

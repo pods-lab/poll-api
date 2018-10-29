@@ -17,7 +17,7 @@ class SendEmailController extends Controller
 {
     /**
      * Envío de correo
-     * @Rest\Post("/enviar", name="enviar")
+     * @Rest\Post("/send", name="send_email")
      * @param Request $request
      * @param \Swift_Mailer $mailer
      * @return array

@@ -7,7 +7,7 @@
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
         .divResultadoFinal {font-size: 20px;}
-        .li {font-size: 14px}
+        .li {font-size: 14px; list-style-type: none;}
     </style>
 
     <div class="example-wrapper">
@@ -18,7 +18,7 @@
             <h5>Preguntas</h5>
             <ul>
                 {% for item in group.items %}
-                    <li class="li">{{ item.title }}</li>
+                    <li class="li"><strong>{{ item.nomenclature }})</strong> {{ item.title }}</li>
                 {% endfor %}
             </ul>
         {% endfor %}

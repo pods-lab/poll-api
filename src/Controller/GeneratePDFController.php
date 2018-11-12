@@ -38,8 +38,9 @@ class GeneratePDFController
             header("Content-Disposition:attachment;filename='$fileName'");
             header("Access-Control-Allow-Origin: *");
             $mpdf->Output('survey.pdf', \Mpdf\Output\Destination::DOWNLOAD);
-            $status  = true;
-            $message = "PDF generado correctamente";
+            exit();
+//            $status  = true;
+//            $message = "PDF generado correctamente";
         } catch (\Exception $exception){
             $status  = false;
             $message = $exception->getMessage();

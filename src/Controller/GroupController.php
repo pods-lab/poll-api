@@ -35,12 +35,14 @@ class GroupController extends FOSRestController
                     "code" => $item->getId(),
                     "nomenclature" => $itemGroup->getNomenclature(),
                     "title" => $item->getTitle(),
+                    "description" => $item->getDescription(),
                     "value" => 0,
                 ];
             }
             $groupsResults[] = [
                 "code" => $group->getId(),
                 "title" => $group->getTitle(),
+                "description" => $group->getDescription(),
                 "average_value" => 0,
                 "items" => $groupItems,
             ];

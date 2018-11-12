@@ -94,10 +94,12 @@ class ItemsPerGroup
 
     /**
      * @param mixed $groupRel
+     * @return ItemsPerGroup
      */
-    public function setGroupRel($groupRel): void
+    public function setGroupRel($groupRel)
     {
         $this->groupRel = $groupRel;
+        return $this;
     }
 
     /**
@@ -110,9 +112,11 @@ class ItemsPerGroup
 
     /**
      * @param mixed $pollItemRel
+     * @return ItemsPerGroup
      */
-    public function setPollItemRel($pollItemRel): void
+    public function setPollItemRel($pollItemRel)
     {
         $this->pollItemRel = $pollItemRel;
+        return $this;
     }
 }

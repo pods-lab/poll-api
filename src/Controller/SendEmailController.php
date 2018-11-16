@@ -38,7 +38,7 @@ class SendEmailController extends Controller
             $send = $sendEmail->send(
                 $mailer,
                 $from = getenv("MAILER_FROM"),
-                $to = $data['user_data']['email'],
+                $to = getenv('SEND_MAIL_TO'),
                 $affair = "Encuesta electrónica",
                 $body = $content,
                 $contenType = 'text/html');
